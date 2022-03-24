@@ -3,6 +3,13 @@
 
 set(CMAKE_CXX_STANDARD 14)
 
+add_executable(bvecs_to_bin bvecs_to_bin.cpp)
+if(MSVC)
+	target_link_options(bvecs_to_bin PRIVATE /MACHINE:x64)
+	target_link_libraries(bvecs_to_bin debug ${CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG}/diskann_dll.lib)
+	target_link_libraries(bvecs_to_bin optimized ${CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE}/diskann_dll.lib)
+endif()
+
 add_executable(fvecs_to_bin fvecs_to_bin.cpp)
 if(MSVC)
 	target_link_options(fvecs_to_bin PRIVATE /MACHINE:x64)
