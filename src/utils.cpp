@@ -52,8 +52,8 @@ bool cpuHasAvx2Support() {
 #endif
 
 #ifndef _WINDOWS
-bool AvxSupportedCPU = true;
-bool Avx2SupportedCPU = false;
+bool AvxSupportedCPU = false;
+bool Avx2SupportedCPU = true;
 #else
 bool AvxSupportedCPU = cpuHasAvxSupport();
 bool Avx2SupportedCPU = cpuHasAvx2Support();
